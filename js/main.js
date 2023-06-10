@@ -40,22 +40,73 @@ let lose = document.getElementById("lose");
 let finalResultButton = document.getElementById("final-result-button");
 
 // Sound variables
-const hoverSound = new Audio("./assets/sounds/hover1.mp3");
+const hoverSound = new Audio("./assets/sounds/hover.mp3");
+const choiceClickSound = new Audio("./assets/sounds/choiceclick.mp3");
+const winSound = new Audio("./assets/sounds/win.mp3");
+const loseSound = new Audio("./assets/sounds/lose.mp3");
+const rulesClickSound = new Audio("./assets/sounds/rulesclick.mp3");
+const playAgainSound = new Audio("./assets/sounds/newgame.mp3");
 
 
 // Pop-up functionality for showing rules
 openButton.addEventListener("click", function() {
+    playRulesClickSound();
     rulesContainer.style.display = "flex";
 });
 
 closeButton.addEventListener("click", function() {
+    playRulesClickSound();
     rulesContainer.style.display = "none";
 });
 
 
 // Game Functionality
+
+// Play sound on hover
+function playHoverSound() {
+    hoverSound.loop = false;
+    hoverSound.play();
+}
+
+playScissors.addEventListener('mouseenter', playHoverSound);
+playPaper.addEventListener('mouseenter', playHoverSound);
+playSpock.addEventListener('mouseenter', playHoverSound);
+playLizard.addEventListener('mouseenter', playHoverSound);
+playRock.addEventListener('mouseenter', playHoverSound);
+
+// Play choice click sound
+function playChoiceClickSound() {
+    choiceClickSound.loop = false;
+    choiceClickSound.play();
+}
+
+// Play win sound
+function playWinSound() {
+    winSound.loop = false;
+    winSound.play();
+}
+
+// Play lose sound
+function playLoseSound() {
+    loseSound.loop = false;
+    loseSound.play();
+}
+
+// Play rules click sound
+function playRulesClickSound() {
+    rulesClickSound.loop = false;
+    rulesClickSound.play();
+}
+
+// Play new game sound when play again button clicked
+function playAgainButtonSound() {
+    playAgainSound.loop = false;
+    playAgainSound.play();
+}
+
 // Scissors functionality 
 playScissors.addEventListener("click", function() {
+    playChoiceClickSound();
     hidePreviousResults();
 
     containerPlay.style.display = "none";
@@ -90,6 +141,7 @@ playScissors.addEventListener("click", function() {
 
 // Paper functionality
 playPaper.addEventListener("click", function() {
+    playChoiceClickSound();
     hidePreviousResults();
 
     containerPlay.style.display = "none";
@@ -124,6 +176,7 @@ playPaper.addEventListener("click", function() {
 
 // Rock functionality
 playRock.addEventListener("click", function() {
+    playChoiceClickSound();
     hidePreviousResults();
 
     containerPlay.style.display = "none";
@@ -158,6 +211,7 @@ playRock.addEventListener("click", function() {
 
 // Lizard functionality
 playLizard.addEventListener("click", function() {
+    playChoiceClickSound();
     hidePreviousResults();
 
     containerPlay.style.display = "none";
@@ -192,6 +246,7 @@ playLizard.addEventListener("click", function() {
 
 // Spock functionality
 playSpock.addEventListener("click", function() {
+    playChoiceClickSound();
     hidePreviousResults();
 
     containerPlay.style.display = "none";
@@ -237,6 +292,7 @@ function showWin() {
     finalResult.style.display = "flex";
     win.style.display = "flex";
     finalResultButton.style.display = "block";
+    playWinSound();
 }
 
 
@@ -254,6 +310,7 @@ function showLose() {
     finalResult.style.display = "flex";
     lose.style.display = "flex";
     finalResultButton.style.display = "block";
+    playLoseSound();
 }
 
 
@@ -285,6 +342,8 @@ function hideResultContainer() {
 
 // Functionality of play again button
 finalResultButton.addEventListener("click", function() {
+    playAgainButtonSound();
+
     hidePreviousResults();
     hideResultContainer();
 
@@ -309,15 +368,3 @@ function resetScore() {
     scoreCounter.innerHTML = score;
     loseStatus = false;
 }
-
-// Play sound on hover
-function handleHover() {
-    hoverSound.loop = false;
-    hoverSound.play();
-}
-
-playScissors.addEventListener('mouseenter', handleHover);
-playPaper.addEventListener('mouseenter', handleHover);
-playSpock.addEventListener('mouseenter', handleHover);
-playLizard.addEventListener('mouseenter', handleHover);
-playRock.addEventListener('mouseenter', handleHover);
