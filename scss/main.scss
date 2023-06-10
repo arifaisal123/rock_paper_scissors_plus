@@ -1,0 +1,353 @@
+@import "default";
+@import "variables";
+
+@mixin play-circle($color, $image, $bs-color) {
+    width: 90px;
+    height: 90px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: $color;
+    border-radius: 50%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size: 50% auto;
+    box-shadow: 0px 4px 0px $bs-color; 
+}
+
+@mixin circle-hover-effects() {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+
+.container {
+    background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+
+    &-score {
+        width: 330px;
+        border: 4px solid hsl(217, 16%, 45%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .logo {
+            margin: 20px;
+            img {
+                width: 60%;
+            }
+        }
+
+        .score {
+            margin: 14px;
+            width: 30%;
+            padding: 5px 0;
+            border-radius: 5px;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+            &_1 {
+                color: hsl(229, 25%, 31%);
+                text-transform: uppercase;
+                color: hsl(229, 64%, 46%);
+            }
+
+            &_2 {
+                font-size: 50px;
+                font-weight: 700;
+                color: hsl(229, 25%, 31%);
+            }
+        }
+    }
+
+    &-play {
+        // display: block;
+        width: 330px;
+        // border: 2px solid white;
+        background-image: url($pentagon-image);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-size: 70% auto;
+        // display: none; //debug
+
+        &_1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .scissors {
+                @include play-circle($scissor-color, $scissor-image, $scissor-bs-color);
+
+                &:hover {
+                    @include circle-hover-effects();
+                }
+            }
+        }
+
+        &_2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .spock {
+                @include play-circle($spock-color, $spock-image, $spock-bs-color);
+
+                &:hover {
+                    @include circle-hover-effects();
+                }
+            }
+
+            .paper {
+                @include play-circle($paper-color, $paper-image, $paper-bs-color);
+
+                &:hover {
+                    @include circle-hover-effects();
+                }
+            }
+        }
+
+        &_3 {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 30px;
+
+            .lizard {
+                @include play-circle($lizard-color, $lizard-image, $lizard-bs-color);
+
+                &:hover {
+                    @include circle-hover-effects();
+                }
+            }
+
+            .rock {
+                @include play-circle($rock-color, $rock-image, $rock-bs-color);
+
+                &:hover {
+                    @include circle-hover-effects();
+                }
+            }
+        }
+    }
+
+    .play-result {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        display: none; //debug
+
+        &-user {
+            .scissors {
+                @include play-circle($scissor-color, $scissor-image, $scissor-bs-color);
+                display: none; //debug
+            }
+
+            .paper {
+                @include play-circle($paper-color, $paper-image, $paper-bs-color);
+                display: none; //debug
+            }
+
+            .rock {
+                @include play-circle($rock-color, $rock-image, $rock-bs-color);
+                display: none; //debug
+            }
+
+            .lizard {
+                @include play-circle($lizard-color, $lizard-image, $lizard-bs-color);
+                display: none; //debug
+            }
+
+            .spock {
+                @include play-circle($spock-color, $spock-image, $spock-bs-color);
+                display: none; //debug
+            }
+
+            p {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 11px;
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+
+        &-opponent {
+            .scissors {
+                @include play-circle($scissor-color, $scissor-image, $scissor-bs-color);
+                display: none; //debug
+            }
+
+            .paper {
+                @include play-circle($paper-color, $paper-image, $paper-bs-color);
+                display: none; //debug
+            }
+
+            .rock {
+                @include play-circle($rock-color, $rock-image, $rock-bs-color);
+                display: none; //debug
+            }
+
+            .lizard {
+                @include play-circle($lizard-color, $lizard-image, $lizard-bs-color);
+                display: none; //debug
+            }
+
+            .spock {
+                @include play-circle($spock-color, $spock-image, $spock-bs-color);
+                display: none; //debug
+            }
+
+            p {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 11px;
+                text-align: center;
+                margin-top: 15px;
+            }
+        }     
+    }
+
+    .final-result {
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: none; //debug
+
+        span {
+            color: #fff;
+            font-size: 70px;
+            font-weight: 700;
+        }
+
+        .win {
+            display: flex;
+        }
+
+        .lose {
+            display: none;
+        }
+
+        .draw {
+            display: none;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #fff;
+            border: 2px solid #fafafa;
+            border-radius: 12px;
+            width: 220px;
+            padding: 10px;
+            color: #172042;
+            text-transform: uppercase;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .rules {
+        button {
+            background-color: transparent;
+            border: 2px solid #fafafa;
+            border-radius: 12px;
+            width: 120px;
+            padding: 10px;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
+
+            &:hover {
+                background-color: #fafafa;
+                color: #172042;
+                cursor: pointer;
+            }
+
+            &:active {
+                background-color: hsl(39, 89%, 49%);
+                border-color: hsl(39, 89%, 49%);;
+            }
+        }
+
+        #rules-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+
+            #rules-content {
+                position: relative;
+                width: 80%;
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                img {
+                    width: 90%;
+                    margin-bottom: 20px;
+                }
+
+                #close-popup {
+                    display: block;
+                    margin-top: 10px;
+                    background-color: #172042;
+
+                    &:hover {
+                        background-color: #fff;
+                        border-color: #172042;
+                        color: #172042;
+                    }
+                  }
+              }
+
+          }
+    }
+
+    .attribution { 
+        font-size: 11px; 
+        text-align: center;
+        color: hsl(39, 89%, 49%);
+        
+        a { 
+            color: hsl(39, 89%, 49%);
+            text-decoration: none;
+
+            &:hover, &:active {
+                color: hsl(349, 71%, 52%);
+                cursor: pointer;
+            }
+        }
+    }   
+}

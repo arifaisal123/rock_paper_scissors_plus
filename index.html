@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+  <link rel="stylesheet" href="./scss/main.css"/>
+  <title>Rock, Paper, Scissors ++</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <header class="container-score">
+          <div class="logo">
+            <img src="./assets/images/logo-bonus.svg"/>
+          </div>
+          <div class="score">
+            <div class="score_1">Score</div>
+            <div class="score_2" id="score-counter">0</div>
+          </div>
+      </header>
+      <main class="container-play" id="container-play">
+        <div class="container-play_1">
+          <div class="scissors" id="play-scissors"></div>
+        </div>
+        <div class="container-play_2">
+          <div class="spock" id="play-spock"></div>
+          <div class="paper" id="play-paper"></div>
+        </div>
+        <div class="container-play_3">
+          <div class="lizard" id="play-lizard"></div>
+          <div class="rock" id="play-rock"></div>          
+        </div>
+      </main>
+      <div class="play-result" id="play-result">
+        <div class="play-result-user">
+          <div class="scissors" id="result-scissors"></div>
+          <div class="paper" id="result-paper"></div>
+          <div class="rock" id="result-rock"></div>
+          <div class="lizard" id="result-lizard"></div>
+          <div class="spock" id="result-spock"></div>
+          <p>You Picked</p>
+        </div>
+        <div class="play-result-opponent">
+          <div class="scissors" id="result-opponent-scissors"></div>
+          <div class="paper" id="result-opponent-paper"></div>
+          <div class="rock" id="result-opponent-rock"></div>
+          <div class="lizard" id="result-opponent-lizard"></div>
+          <div class="spock" id="result-opponent-spock"></div>
+          <p>The House Picked</p>
+        </div>
+      </div>
+      <div class="final-result" id="final-result">
+        <div class="win" id="win"><span>You Win</span></div>
+        <div class="lose" id="lose"><span>You Lose</span></div>
+        <div class="draw" id="draw"><span>Draw</span></div>
+        <button id="final-result-button">Play Again</button>
+      </div>
+      <div class="rules">
+        <button id="open-popup">Rules</button>
+        <div id="rules-container">
+          <div id="rules-content">
+            <img src="./assets/images/image-rules-bonus.svg" alt="Game Rules">
+            <button id="close-popup">Close</button>
+          </div>
+        </div>
+      </div>
+      <footer class="attribution">
+          Coded by <a href="https://arifaisal123.github.io" target="_blank">Arif Faisal</a>.
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.           
+      </footer>  
+    </div>    
+  </main>
+  <script src="./js/main.js"></script>
+</body>
+</html>
